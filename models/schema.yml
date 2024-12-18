@@ -1,25 +1,25 @@
 version: 2
 
 sources:
-  - name: raw # Alias for the dataset (name changed from 'gz_raw_data')
-    schema: data_for_dbt # Actual schema in BigQuery
-    description: "This is the raw data from Greenweez" # Added description for the source
+  - name: raw  
+    schema: gz_raw_data
+    description: "This is the raw data from Greenweez" 
     tables:
-      - name: sales # Table name (you will change this if your raw table name is different)
-        identifier: raw_gz_sales # Alias for the table
-        description: "This table contains the raw sales data from Greenweez" # Description for the raw_gz_sales table
-      - name: product # The raw product table in BigQuery
+      - name: sales 
+        identifier: raw_gz_sales 
+        description: "This table contains the raw sales data from Greenweez"
+      - name: product 
         identifier: raw_gz_product
         description: "Product details from Greenweez"
         
-      - name: ship # The raw ship table in BigQuery
+      - name: ship 
         identifier: raw_gz_ship
         description: "Shipping data from Greenweez"
         
 
 models:
-  - name: my_first_dbt_model # Name of your DBT model (can change as needed)
-    description: "A starter dbt model" # Description of the model
+  - name: my_first_dbt_model 
+    description: "A starter dbt model" 
     columns:
       - name: id
         description: "The primary key for this table"
