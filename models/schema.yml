@@ -1,23 +1,25 @@
 version: 2
 
 sources:
-  - name: raw  # Alias for the dataset (name changed from 'gz_raw_data')
-    schema: data_for_dbt  # Actual schema in BigQuery
-    description: "This is the raw data from Greenweez"  # Added description for the source
+  - name: raw # Alias for the dataset (name changed from 'gz_raw_data')
+    schema: data_for_dbt # Actual schema in BigQuery
+    description: "This is the raw data from Greenweez" # Added description for the source
     tables:
-      - name: raw_gz_sales  # Table name (you will change this if your raw table name is different)
-        alias: sales  # Alias for the table
-        description: "This table contains the raw sales data from Greenweez"  # Description for the raw_gz_sales table
-      - name: raw_gz_product  # The raw product table in BigQuery
+      - name: sales # Table name (you will change this if your raw table name is different)
+        identifier: raw_gz_sales # Alias for the table
+        description: "This table contains the raw sales data from Greenweez" # Description for the raw_gz_sales table
+      - name: product # The raw product table in BigQuery
+        identifier: raw_gz_product
         description: "Product details from Greenweez"
-        alias: product  # Alias for the 'raw_gz_product' table
-      - name: raw_gz_ship  # The raw ship table in BigQuery
+        
+      - name: ship # The raw ship table in BigQuery
+        identifier: raw_gz_ship
         description: "Shipping data from Greenweez"
-        alias: ship  # Alias for the 'raw_gz_ship' table
- 
+        
+
 models:
-  - name: my_first_dbt_model  # Name of your DBT model (can change as needed)
-    description: "A starter dbt model"  # Description of the model
+  - name: my_first_dbt_model # Name of your DBT model (can change as needed)
+    description: "A starter dbt model" # Description of the model
     columns:
       - name: id
         description: "The primary key for this table"
